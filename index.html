@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arya | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- =====================================================
+     NAVBAR: menu navigasi di bagian atas + tombol ganti tema
+     ===================================================== -->
+<nav>
+  <div class="logo">arya<span>.dev</span></div>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><button id="themeBtn" aria-label="Toggle theme">Theme</button></li>
+  </ul>
+</nav>
+
+<!-- =====================================================
+     HOME (HERO): perkenalan singkat, tombol, skill, dan foto profil
+     Foto profil: ganti file di images/foto.jpeg
+     ===================================================== -->
+<section id="home" class="hero">
+  <div>
+    <div class="tag">Hello, I'm</div>
+    <h1><em>Arya Nugraha Kalyana</em></h1>
+    <p>Graduate of Information Technology Education from Universitas PGRI Semarang with a GPA of 3.91. I am interested in software development, databases, mobile applications, and AI technology.</p>
+    <p>I enjoy learning new things and am comfortable working both independently and in a team.</p>
+    <!-- Dua tombol: ke Contact dan ke Experience -->
+    <div class="btns">
+      <a class="btn" href="#contact">Contact Me</a>
+      <a class="btn o" href="#experience">View Experience</a>
+    </div>
+    <!-- Badge skill: tambah/hapus <span> sesuai kebutuhan -->
+    <div class="skills"><span>Python</span><span>JavaScript</span><span>Spline</span><span>WebDev</span><span>Scratch</span><span>Blender</span><span>C++</span></div>
+  </div>
+  <!-- Foto profil berbentuk lingkaran -->
+  <div class="avatar"><span>Photo</span><img src="images/foto.jpeg" alt="Arya Nugraha Kalyana"></div>
+</section>
+
+<!-- =====================================================
+     EDUCATION: riwayat pendidikan dari yang terbaru ke terlama
+     Untuk menambah jenjang, salin satu blok <div class="item">
+     ===================================================== -->
+<section id="education" class="center">
+  <div class="tag">Education</div>
+  <h2>Academic Background</h2>
+  <div class="timeline">
+    <div class="item">
+      <div class="date">2022 – 2026</div>
+      <h3>Universitas PGRI Semarang</h3>
+      <h4>Bachelor of Information Technology Education</h4>
+      <p>GPA 3.91</p>
+    </div>
+    <div class="item">
+      <div class="date">2019 – 2022</div>
+      <h3>SMA Negeri 3 Demak</h3>
+      <h4>Natural Sciences</h4>
+      <p>Average score 88.1</p>
+    </div>
+    <div class="item">
+      <div class="date">2016 – 2019</div>
+      <h3>SMP Negeri 1 Demak</h3>
+      <h4>Demak, Central Java</h4>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================
+     EXPERIENCE: kartu pengalaman, tiap <article> = satu kartu
+     Foto kartu: ganti file di folder images/ (lihat atribut src)
+     ===================================================== -->
+<section id="experience">
+  <div class="tag">Experience</div>
+  <h2>My Experience</h2>
+  <!-- Kartu 1: Teaching Assistant | Kartu 2: Educational Internship | Kartu 3: KKN -->
+  <div class="exp-grid">
+    <article class="exp-card">
+      <div class="thumb"><span>Activity photo</span><img src="images/asisten-dosen.jpeg" alt="Teaching Assistant"></div>
+      <div class="exp-body">
+        <div class="exp-date">2023 – Present</div>
+        <h3>Teaching Assistant</h3>
+        <h4>Universitas PGRI Semarang</h4>
+        <p>Assisted practicum sessions, graded assignments and quizzes, prepared teaching materials, and supported lecturers' research.</p>
+      </div>
+    </article>
+    <article class="exp-card">
+      <div class="thumb"><span>Activity photo</span><img src="images/magang-kependidikan.jpeg" alt="Educational Internship"></div>
+      <div class="exp-body">
+        <div class="exp-date">2023 – Present</div>
+        <h3>Educational Internship</h3>
+        <h4>SMA Negeri 3 Semarang</h4>
+        <p>Helped teach Informatics, managed student grades, prepared final exam questions, and proctored exams.</p>
+      </div>
+    </article>
+    <article class="exp-card">
+      <div class="thumb"><span>Activity photo</span><img src="images/kkn-tematik.jpeg" alt="Thematic Community Service"></div>
+      <div class="exp-body">
+        <div class="exp-date">September 2025</div>
+        <h3>Thematic Community Service (KKN)</h3>
+        <h4>Mluweh Village, East Ungaran, Semarang</h4>
+        <p>Helped village children learn through tutoring sessions during the community service program.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- =====================================================
+     CONTACT: kartu email, WhatsApp, dan LinkedIn (lengkap dengan ikon)
+     Ubah isi href untuk mengganti tujuan link
+     ===================================================== -->
+<section id="contact">
+  <div class="tag">Contact</div>
+  <h2>Let's Connect</h2>
+  <!-- Ikon dibuat dengan SVG langsung di HTML, tidak perlu file tambahan -->
+  <div class="contact">
+    <div class="card"><a href="mailto:aryanime087@gmail.com"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span class="info"><small>Email</small>aryanime087@gmail.com</span></a></div>
+    <div class="card"><a href="https://wa.me/6285742008870"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 21l2.2-5.2A8.5 8.5 0 1 1 21 11.5z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.5-2-1-1 .8c-1-.4-2-1.4-2.4-2.4l.8-1-1-2z"/></svg></span><span class="info"><small>WhatsApp</small>+62 857-4200-8870</span></a></div>
+    <div class="card"><a href="https://www.linkedin.com/in/arya-nugraha-kalyana-71842b1a4/?isSelfProfile=true"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><span class="info"><small>LinkedIn</small>Arya Nugraha Kalyana</span></a></div>
+  </div>
+</section>
+
+<!-- =====================================================
+     FOOTER: hak cipta di bagian paling bawah
+     ===================================================== -->
+<footer>© 2026 Arya Nugraha Kalyana. All rights reserved.</footer>
+
+<!-- JavaScript: tombol ganti tema & penanganan gambar yang belum ada -->
+<script src="script.js"></script>
+</body>
+</html>

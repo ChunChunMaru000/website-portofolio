@@ -1,0 +1,237 @@
+/* =====================================================
+   1. WARNA & TEMA
+   Ubah warna website cukup di bagian ini.
+   ===================================================== */
+:root {
+  --bg: #faf8f5;      /* warna latar halaman */
+  --card: #ffffff;    /* warna latar kartu */
+  --text: #1d1b2e;    /* warna teks utama */
+  --mute: #6b6880;    /* warna teks sekunder (abu-abu) */
+  --acc: #6c47ff;     /* warna aksen utama (ungu) */
+  --acc2: #e0603e;    /* warna aksen kedua (oranye) */
+  --line: #e8e4ee;    /* warna garis & border */
+}
+
+/* Mode gelap (dipasang oleh script.js lewat atribut data-theme) */
+:root[data-theme="dark"] {
+  --bg: #13111c;
+  --card: #1c1928;
+  --text: #f1eefb;
+  --mute: #a29db8;
+  --line: #2c2840;
+}
+
+
+/* =====================================================
+   2. PENGATURAN DASAR
+   ===================================================== */
+* { box-sizing: border-box; margin: 0; }
+
+html {
+  scroll-behavior: smooth;   /* scroll halus saat klik menu */
+  scroll-padding-top: 80px;  /* supaya judul section tidak tertutup navbar */
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', system-ui, Arial, sans-serif;
+  line-height: 1.65;
+}
+
+/* Setiap section: lebar maksimal & jarak atas-bawah.
+   Angka pertama (48px) = jarak antar section, kecilkan/besarkan sesuai selera */
+section { padding: 48px 6%; max-width: 1050px; margin: auto; }
+
+
+/* =====================================================
+   3. NAVBAR (menu atas)
+   ===================================================== */
+nav {
+  position: sticky; top: 0; z-index: 9;   /* menempel di atas saat scroll */
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 6%;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+.logo { font-weight: 800; font-size: 1.2rem; }
+.logo span { color: var(--acc); }
+
+nav ul { display: flex; gap: 22px; list-style: none; padding: 0; align-items: center; }
+nav a { color: var(--mute); text-decoration: none; font-weight: 500; }
+nav a:hover { color: var(--acc); }
+
+/* Tombol ganti tema */
+button {
+  cursor: pointer; border: 1px solid var(--line); background: var(--card);
+  color: var(--text); border-radius: 99px; padding: 6px 14px; font: inherit; font-size: .9rem;
+}
+
+
+/* =====================================================
+   4. JUDUL UMUM (dipakai di semua section)
+   ===================================================== */
+.tag {                      /* label kecil oranye di atas judul */
+  color: var(--acc2); font-weight: 700; letter-spacing: .15em;
+  font-size: .8rem; text-transform: uppercase;
+}
+h1 { font-size: clamp(2rem, 5vw, 3.1rem); overflow-wrap: break-word; line-height: 1.1; margin: 8px 0 16px; }
+h1 em { font-style: normal; color: var(--acc); }   /* nama di hero berwarna ungu */
+h2 { font-size: 2rem; margin: 6px 0 24px; }
+
+
+/* =====================================================
+   5. HERO (bagian pembuka: nama, deskripsi, foto)
+   ===================================================== */
+.hero {
+  display: grid; grid-template-columns: 1.5fr 1fr;   /* kiri teks, kanan foto */
+  gap: 64px;                                         /* jarak teks ke foto */
+  align-items: center; min-height: 65vh;   /* tinggi minimal hero */
+}
+.hero > * { min-width: 0; }
+.hero p { color: var(--mute); margin-bottom: 14px; }
+
+/* Foto profil berbentuk lingkaran */
+.avatar {
+  position: relative; overflow: hidden;
+  aspect-ratio: 1; width: 100%; max-width: 300px; justify-self: center;
+  border-radius: 50%;
+  background: var(--line); border: 4px solid var(--card);
+  box-shadow: 0 0 0 2px var(--acc);                  /* bingkai ungu tipis */
+  display: grid; place-items: center;
+  color: var(--mute); font-size: 1rem;               /* gaya teks "Photo" saat gambar belum ada */
+}
+.avatar img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover;
+  /* Posisi foto di dalam lingkaran.
+     "center top"    = tampilkan bagian atas foto (kepala lebih turun)
+     "center center" = tengah
+     "center 20%"    = antara atas dan tengah, bisa diatur angkanya */
+  object-position: center top;
+}
+
+
+/* =====================================================
+   6. TOMBOL & BADGE SKILL (di dalam hero)
+   ===================================================== */
+.btns { display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
+.btn {
+  padding: 11px 22px; border-radius: 99px; text-decoration: none;
+  font-weight: 600; background: var(--acc); color: #fff;
+}
+.btn.o { background: transparent; color: var(--text); border: 1px solid var(--line); }  /* tombol outline */
+
+.skills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.skills span {
+  background: var(--card); border: 1px solid var(--line);
+  padding: 6px 14px; border-radius: 99px; font-size: .9rem;
+}
+
+
+/* =====================================================
+   7. EDUCATION (timeline pendidikan)
+   ===================================================== */
+
+/* Timeline dasar: garis di kiri dengan titik */
+.timeline { border-left: 2px solid var(--line); padding-left: 26px; display: grid; gap: 26px; }
+.item { position: relative; }
+.item::before {                                      /* titik di garis */
+  content: ""; position: absolute; left: -34px; top: 8px;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--acc); border: 3px solid var(--bg);
+}
+.date { color: var(--acc2); font-size: .85rem; font-weight: 700; }
+.item h3 { margin: 2px 0; }
+.item h4 { color: var(--mute); font-weight: 500; margin-bottom: 6px; }
+.item p { color: var(--mute); }
+
+/* Versi rata tengah (class "center" dipasang di section Education) */
+.center { text-align: center; }
+.center .timeline {
+  position: relative; border-left: none; padding-left: 0;
+  max-width: 560px; margin: 0 auto;
+}
+.center .timeline::before {                          /* garis vertikal di tengah */
+  content: ""; position: absolute; left: 50%; top: 0; bottom: 0;
+  width: 2px; background: var(--line); transform: translateX(-50%);
+}
+.center .item { background: var(--bg); padding-top: 26px; position: relative; }
+.center .item::before { left: 50%; top: 0; transform: translateX(-50%); }   /* titik di tengah */
+
+
+/* =====================================================
+   8. EXPERIENCE (kartu pengalaman)
+   ===================================================== */
+.exp-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px; align-items: start;
+}
+.exp-card {
+  background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+  overflow: hidden; transition: transform .2s, box-shadow .2s;
+}
+.exp-card:hover { transform: translateY(-6px); box-shadow: 0 12px 28px rgba(0,0,0,.12); }  /* efek naik saat hover */
+
+/* Area foto di bagian atas kartu */
+.thumb {
+  position: relative; height: 170px; background: var(--line); color: var(--mute);
+  display: grid; place-items: center; font-size: .9rem;
+}
+.thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Isi teks kartu */
+.exp-body { padding: 22px; }
+.exp-date { color: var(--mute); font-size: .85rem; margin-bottom: 10px; }
+.exp-body h3 { font-size: 1.15rem; line-height: 1.35; margin-bottom: 8px; }
+.exp-body h4 { color: var(--acc); font-size: .95rem; font-weight: 600; margin-bottom: 10px; }
+.exp-body p { color: var(--mute); font-size: .95rem; }
+
+
+/* =====================================================
+   9. CONTACT (kartu email, WhatsApp, LinkedIn)
+   ===================================================== */
+.contact {
+  display: flex; flex-wrap: wrap; gap: 16px;   /* kartu berjajar, turun ke baris baru kalau tidak muat */
+}
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 24px; }
+.contact .card {
+  flex: 1 1 auto;                   /* lebar kartu mengikuti isinya, sisa ruang dibagi rata */
+  display: flex; align-items: center;   /* ikon & teks sejajar di tengah kartu */
+}
+.contact .card:hover { border-color: var(--acc); }
+.contact a { color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 14px; }
+
+/* Lingkaran ikon */
+.ico {
+  flex-shrink: 0; width: 46px; height: 46px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--bg); border: 1px solid var(--line); color: var(--acc);
+  transition: background .2s, color .2s;
+}
+.ico svg { width: 22px; height: 22px; }
+.contact .card:hover .ico { background: var(--acc); color: #fff; border-color: var(--acc); }
+
+/* Teks di samping ikon */
+.info { min-width: 0; font-size: .95rem; white-space: nowrap; }   /* teks tidak dipotong ke baris baru */
+.contact small { color: var(--mute); display: block; }
+
+
+/* =====================================================
+   10. FOOTER
+   ===================================================== */
+footer { text-align: center; color: var(--mute); padding: 30px; border-top: 1px solid var(--line); }
+
+
+/* =====================================================
+   11. RESPONSIVE (tampilan tablet & HP)
+   ===================================================== */
+@media (max-width: 720px) {
+  section { padding: 36px 6%; }                      /* jarak antar section lebih rapat di HP */
+  .hero { grid-template-columns: 1fr; text-align: center; gap: 30px; }  /* foto di atas, teks di bawah */
+  .btns, .skills { justify-content: center; }
+  nav ul { gap: 12px; font-size: .9rem; }
+  .avatar { order: -1; max-width: 200px; }
+  .contact .card { flex-basis: 100%; }               /* kartu kontak 1 kolom di HP */
+  .info { white-space: normal; overflow-wrap: anywhere; }
+}
